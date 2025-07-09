@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import WelcomeMessage from './components/WelcomeMessage.jsx'
+import Header from './components/Header.jsx'
+
+// Importing logos and styles
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import MainContent from './components/MainContent.jsx'
+import Footer from './components/Footer.jsx'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,6 +36,9 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <WelcomeMessage />
+      <Header />
+      <MainContent />
+      <Footer />
     </>
   )
 }
