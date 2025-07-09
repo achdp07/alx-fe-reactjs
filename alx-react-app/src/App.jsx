@@ -2,6 +2,8 @@ import { useState } from 'react'
 import WelcomeMessage from './components/WelcomeMessage.jsx'
 import Header from './components/Header.jsx'
 
+import UserProfile from './components/UserProfile.jsx'
+
 // Importing logos and styles
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -39,6 +41,7 @@ function App() {
       <Header />
       <MainContent />
       <Footer />
+      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
     </>
   )
 }
