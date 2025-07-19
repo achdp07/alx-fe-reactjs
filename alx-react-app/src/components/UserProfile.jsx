@@ -1,19 +1,19 @@
-function USerProfile(props) {
+function USerProfile(UserContext) {
     return (
-        props.name && props.age && props.bio ? (
-            <UserProfile name={props.name} age={props.age} bio={props.bio} />
+        UserContext.name && UserContext.age && UserContext.bio ? (
+            <UserProfile name={UserContext.name} age={UserContext.age} bio={UserContext.bio} />
         ) : (
             <p>Please provide valid user information.</p>
         )
     )
 }
 
- const UserProfile = (props) => {
+ const UserProfile = (UserContext) => {
    return (
      <div>
-       <h2>{props.name}</h2>
-       <p>Age: {props.age}</p>
-       <p>Bio: {props.bio}</p>
+       <h2>{UserContext.name}</h2>
+       <p>Age: {UserContext.age}</p>
+       <p>Bio: {UserContext.bio}</p>
      </div>
    );
  };
