@@ -1,4 +1,4 @@
-import React, {UserContext} from 'react';
+import React, {UseContext} from 'react';
 import UserContext from "./UserContext";
 
 function USerProfile(UserContext) {
