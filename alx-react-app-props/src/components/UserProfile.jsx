@@ -1,3 +1,6 @@
+import React, {UserContext} from 'react';
+import UserContext from "./UserContext";
+
 function USerProfile(UserContext) {
     return (
         UserContext.name && UserContext.age && UserContext.bio ? (
