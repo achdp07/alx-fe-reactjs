@@ -10,6 +10,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import MainContent from './components/MainContent.jsx'
 import Footer from './components/Footer.jsx'
+import Counter from './components/counter.jsx'
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
       <MainContent />
       <Footer />
       <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
+      <Counter />
     </>
   )
 }
