@@ -49,4 +49,4 @@ import { useState } from 'react';
      );
    }
 
-   export default Contact;
+export default Contact;
