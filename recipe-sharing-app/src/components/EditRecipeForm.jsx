@@ -1,18 +1,43 @@
 // EditRecipeForm component
   import { useRecipeStore } from './recipeStore';
+  import useRecipeStore from './recipeStore';
 
-  const EditRecipeForm = ({ recipeId }) => {
-    const recipe = useRecipeStore(state =>
-      state.recipes.find(recipe => recipe.id === recipeId)
-    );
 
-    return (
-      <div>
-        <h1>{recipe.title}</h1>
-        <p>{recipe.description}</p>
-        {/* Render EditRecipeForm and DeleteRecipeButton here */}
-      </div>
-    );
+  const EditRecipeForm = ({ recipe }) => {
+  const [title, setTitle] = useState(recipe.title);
+  const [description, setDescription] = useState(recipe.description);
+
+  const updateRecipe = useRecipeStore((state) => state.updateRecipe);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateRecipe({
+      ...recipe,
+      title,
+      description,
+    });
+    alert('Recipe updated!');
   };
 
-  export default EditRecipeForm;
+  return (
+    <form onSubmit={handleSubmit}>
+      <h3>Edit Recipe</h3>
+      <input
+        type="text"
+        placeholder="Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <br />
+      <textarea
+        placeholder="Description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
+      <br />
+      <button type="submit">Save Changes</button>
+    </form>
+  );
+};
+
+export default EditRecipeForm;
