@@ -1,4 +1,5 @@
 import { useRecipeStore } from './recipeStore';
+import { useParams } from 'react-router-dom';
 
 const FavoritesList = () => {
   const favorites = useRecipeStore(state => state.favorites.map(id =>
@@ -17,3 +18,5 @@ const FavoritesList = () => {
     </div>
   );
 };
+
+export default FavoritesList;

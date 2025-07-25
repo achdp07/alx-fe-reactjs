@@ -16,6 +16,9 @@ function App() {
         {/* Assuming EditRecipeForm and RecipeDetails are defined and imported */}
         <Route path="/edit/:recipeId" element={<EditRecipeForm />} />
         <Route path="/details/:recipeId" element={<RecipeDetails />} />
+        <Route path="/favorites" element={<FavoritesList />} />
+        <Route path="recommendations" element={<Recommendations />} />
+
       </Routes>
     </Router>
   );
