@@ -1,3 +1,4 @@
+import axios from "axios";
 const apiKey = import.meta.env.VITE_APP_GITHUB_API_KEY;
 
 export const fetchUser = async (username) => {
@@ -8,3 +9,5 @@ export const fetchUser = async (username) => {
   });
   return res.json();
 };
+
+
