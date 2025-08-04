@@ -13,11 +13,12 @@ const Search = () => {
     setError("");
     setUser(null);
 
+    //"Looks like we can't find the user"
     try {
       const data = await fetchUserData(username);
       setUser(data);
     } catch {
-      setError("Looks like we can't find the user.");
+      setError("Looks like we can't find the user");
     } finally {
       setLoading(false);
     }
