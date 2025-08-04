@@ -12,7 +12,7 @@ const Search = () => {
     setLoading(true);
     setError("");
     setUser(null);
-
+//"map"
 //"Looks like we cant find the user"
     try {
       const data = await fetchUserData(username);
