@@ -14,6 +14,7 @@ const Search = () => {
     setUser(null);
 //"map"
 //"Looks like we cant find the user"
+//"location"
     try {
       const data = await fetchUserData(username);
       setUser(data);
