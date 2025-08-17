@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // "react-router-dom", "BrowserRouter", "Route", "Routes", "RecipeDetail"
 const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
+  {/* "Link", "to" */}
 
   useEffect(() => {
     fetch("/data.json") // make sure data.json is in public folder
