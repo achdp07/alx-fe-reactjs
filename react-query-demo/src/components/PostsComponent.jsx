@@ -28,13 +28,13 @@ export default function PostsComponent() {
   return (
     <div className="p-4 max-w-2xl mx-auto">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-bold">Posts</h2>
+        <h2 className="text-xl font-bold">Posts Fetching</h2>
         <button
           onClick={() => refetch()}
           disabled={isFetching}
           className="bg-indigo-600 text-white px-3 py-1 rounded-lg hover:bg-indigo-700 disabled:opacity-50"
         >
-          {isFetching ? "Refreshing..." : "Refetch"}
+          {isFetching ? "On my way..." : "Refetch"}
         </button>
       </div>
 
