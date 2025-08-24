@@ -14,7 +14,7 @@ const validationSchema = Yup.object({
     .required('Password is required'),
 });
 
-const FormikForm = () => {
+const formikForm = () => {
   return (
     <div>
       <h2>Registration Form</h2>
@@ -54,5 +54,5 @@ const FormikForm = () => {
   );
 };
 
-export default FormikForm;
+export default formikForm;
 //done
