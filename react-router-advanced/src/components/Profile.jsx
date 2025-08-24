@@ -5,6 +5,7 @@ import { useAuth } from "../context/AuthContext";
 export default function Profile() {
   const { logout } = useAuth();
 
+  //"Routes", "Route", "ProfileDetails", "ProfileSettings"
   return (
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">Profile Page</h2>
