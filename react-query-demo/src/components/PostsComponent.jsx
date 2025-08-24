@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 const fetchPosts = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -8,6 +9,8 @@ const fetchPosts = async () => {
 };
 
 export default function PostsComponent() {
+  const [page, setPage] = useState(1);
+
   const {
     data: posts,
     error,
@@ -16,10 +19,12 @@ export default function PostsComponent() {
     refetch,
     isFetching,
   } = useQuery({
-    queryKey: ["posts"],
-    queryFn: fetchPosts,
+    queryKey: ["posts", page],
+    queryFn: () => fetchPosts(page),
     staleTime: 1000 * 60, // ✅ 1 min: data stays "fresh"
     cacheTime: 1000 * 60 * 5, // ✅ 5 min: data stays in cache
+    refetchOnWindowFocus: true,   // 🔄 auto refetch when user refocuses
+    keepPreviousData: true,       // 👌 prevents flicker on page change
   });
 
   if (isLoading) return <p className="text-gray-600">Loading posts...</p>;
@@ -28,13 +33,13 @@ export default function PostsComponent() {
   return (
     <div className="p-4 max-w-2xl mx-auto">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-bold">Posts Fetching</h2>
+        <h2 className="text-xl font-bold">Posts (Page {page})</h2>
         <button
           onClick={() => refetch()}
           disabled={isFetching}
           className="bg-indigo-600 text-white px-3 py-1 rounded-lg hover:bg-indigo-700 disabled:opacity-50"
         >
-          {isFetching ? "On my way..." : "Refetch"}
+          {isFetching ? "Refreshing..." : "Refetch"}
         </button>
       </div>
 
@@ -49,6 +54,23 @@ export default function PostsComponent() {
           </li>
         ))}
       </ul>
+
+      {/* Pagination buttons */}
+      <div className="flex justify-between mt-4">
+        <button
+          onClick={() => setPage((old) => Math.max(old - 1, 1))}
+          disabled={page === 1}
+          className="px-3 py-1 bg-gray-300 rounded disabled:opacity-50"
+        >
+          Prev
+        </button>
+        <button
+          onClick={() => setPage((old) => old + 1)}
+          className="px-3 py-1 bg-gray-300 rounded"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }
